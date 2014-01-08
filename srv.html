@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!-- <html lang="en-US"> -->
+<html lang="en-US" class="fade nonumbers">
+<!--
+  ^ a class of "fade" makes slides fade smoothly into one another
+ -->
+<!-- <html lang="en-US" class="nonumbers"> -->
+<!--
+  If you want no numbers on the slides add a "nonumbers" class
+  to the HTML element.
+  Adding a class of "fade" will make slides fade into another.
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>SRV Record Reachability</title>
+<!--
+  If you upload your slides to the web, ensure that you have
+  a good title - this shows up in search results and social
+  media links
+ -->
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+  <link rel="stylesheet" href="themes/mozilla/styles/style.css">
+</head>
+<body class="list">
+  <header class="caption">
+    <h1>SRV Record Reachability</h1>
+    <p class="footer">
+      Nicholas Hurley (hurley@mozilla.com, @todesschaf)
+      <br>
+      Patrick McManus (pmcmanus@mozilla.com)
+    </p>
+  </header>
+  <aside class="talkdescription">
+    <button onclick="goFullScreen()">Go fullscreen</button>
+    <p class="abstract">
+      <strong>Abstract: </strong>
+      A quick overview of the reachability of DNS SRV records for opportunistically upgrading http to https
+    </p>
+  </aside>
+
+<!--
+    Simply copy the whole block for each slide you want.
+  Special slides get extra classes. Each slide needs an ID
+  to allow for bookmarking and target jumping.
+-->
+
+  <div id="cover" class="slide shout"><div>
+    <section>
+      <header>
+        <h2>DNS SRV Record Reachability</h2>
+      </header>
+      <small class="byline">
+          Nicholas Hurley (hurley@mozilla.com, @todesschaf)
+          <br>
+          Patrick McManus (pmcmanus@mozilla.com)
+      </small>
+    </section>
+  </div></div>
+
+  <div id="why" class="slide"><div>
+    <section>
+      <header>
+        <h2>Want to be able to upgrade http:// to https://</h2>
+      </header>
+      <ul class="inner">
+          <li class="active">Without incuring extra round trips like Upgrade, Alt-Svc, etc</li>
+          <li>Without risking sending cookies in the clear</li>
+      </ul>
+      <footer class="notes">
+      </footer>
+    </section>
+  </div></div>
+
+  <div id="method" class="slide"><div>
+    <section>
+        <header>
+            <h2>Experiment Method</h2>
+        </header>
+        <ul class="inner">
+            <li class="active">Wildcard DNS entries for *.http2test.mozilla.org, both A and SRV</li>
+            <li>When looking up *.mozilla.org, run the experiment (preserve privacy)</li>
+            <li>Run once per browser session</li>
+            <li>Each run uses unique hostnames (cache busting)</li>
+            <li>Lookup A and SRV in parallel</li>
+            <li>When results come in, compare with expected results</li>
+            <li>Compare response times to ensure SRV isn't artifically hindered</li>
+        </ul>
+    </section>
+  </div></div>
+
+  <div id="telemetry_success" class="slide"><div>
+    <section>
+        <header>
+            <h2>Telemetry Results (Success Percentage)</h2>
+        </header>
+        <img src="images/telemetry_success.png"
+             class="middle shadow"
+             alt="telemetry histogram of success"
+             style="width: 75%;">
+
+        <ul class="inner">
+            <li class="active">Foo</li>
+            <li>Bar</li>
+            <li>Baz</li>
+            <li>Quux</li>
+        </ul>
+    </section>
+  </div></div>
+
+  <div id="telemetry_timing" class="slide"><div>
+    <section>
+        <header>
+            <h2>Telemetry Results (Timing Comparison)</h2>
+        </header>
+        <img src="images/telemetry_timing"
+             class="middle shadow"
+             alt="telemetry histogram of timing"
+             style="width: 75%;">
+
+        <ul class="inner">
+            <li class="active">Foo</li>
+            <li>Bar</li>
+            <li>Baz</li>
+            <li>Quux</li>
+        </ul>
+    </section>
+  </div></div>
+
+  <div id="conclusions" class="slide"><div>
+    <section>
+      <header>
+        <h2>Conclusions</h2>
+      </header>
+
+      Using DNS SRV records isn't perfect, but it's good enough to use as a first try for upgrading HTTP/1 to HTTP/2 while using Alt-Svc as a fallback.
+    </section>
+  </div></div>
+
+  <div id="thanks" class="slide"><div>
+    <section>
+      Thanks to Mozilla Services for setting up the DNS infrastrcture for us to test this.
+    </section>
+  </div></div>
+
+<!-- end slide block -->
+
+  <script src="scripts/script.js"></script>
+  <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+</body>
+</html>
