@@ -99,10 +99,11 @@
              style="width: 75%;">
 
         <ul class="inner">
-            <li class="active">Foo</li>
-            <li>Bar</li>
-            <li>Baz</li>
-            <li>Quux</li>
+            <li class="active">5.89M total</li>
+            <li>5.4M A &amp; SRV succeed</li>
+            <li>180k SRV only failed</li>
+            <li>61.17k A only failed</li>
+            <li>249.41k A &amp; SRV failed</li>
         </ul>
     </section>
   </div></div>
@@ -118,10 +119,15 @@
              style="width: 75%;">
 
         <ul class="inner">
-            <li class="active">Foo</li>
-            <li>Bar</li>
-            <li>Baz</li>
-            <li>Quux</li>
+            <li class="active">Normalized to "1000ms" = even (no negative numbers in telemetry)</li>
+            <li>Negative number (0-999 on graph) means SRV came faster</li>
+            <li>Positive number (1001-2000 on graph) means A came faster</li>
+            <li>5.4M total</li>
+            <li>95th percentile @ +130ms</li>
+            <li>75th percentile @ +10ms</li>
+            <li>Median @ -2.32ms</li>
+            <li>69.48k submissions &gt;= +1s</li>
+            <li>80.97k submissions &lt;= -1s</li>
         </ul>
     </section>
   </div></div>
