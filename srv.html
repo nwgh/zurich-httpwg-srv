@@ -47,10 +47,10 @@
   <div id="cover" class="slide shout"><div>
     <section>
       <header>
-        <h2>DNS SRV Record Reachability</h2>
+        <h2>SRV Record Reachability</h2>
       </header>
       <small class="byline">
-          Nicholas Hurley (hurley@mozilla.com, @todesschaf)
+          Nicholas Hurley (hurley@mozilla.com)
           <br>
           Patrick McManus (pmcmanus@mozilla.com)
       </small>
@@ -62,8 +62,8 @@
       <header>
         <h2>Want to be able to upgrade http:// to https://</h2>
       </header>
-      <ul class="inner">
-          <li class="active">Without incuring extra round trips like Upgrade, Alt-Svc, etc</li>
+      <ul>
+          <li>Without incuring extra round trips like Upgrade, Alt-Svc, etc</li>
           <li>Without risking sending cookies in the clear</li>
       </ul>
       <footer class="notes">
@@ -76,8 +76,8 @@
         <header>
             <h2>Experiment Method</h2>
         </header>
-        <ul class="inner">
-            <li class="active">Wildcard DNS entries for *.http2test.mozilla.org, both A and SRV</li>
+        <ul>
+            <li>Wildcard DNS entries for *.http2test.mozilla.org, both A and SRV</li>
             <li>When looking up *.mozilla.org, run the experiment (preserve privacy)</li>
             <li>Run once per browser session</li>
             <li>Each run uses unique hostnames (cache busting)</li>
@@ -93,19 +93,21 @@
         <header>
             <h2>Telemetry Results (Success Percentage)</h2>
         </header>
-        <img src="pictures/telemetry_success.png"
-             class="middle shadow"
+        <img src="pictures/telemetry_success_histogram.png"
+             class="right shadow"
              alt="telemetry histogram of success"
              style="width: 75%;">
 
-        <ul class="inner">
-            <li class="active">5.89M total</li>
-            <li>5.4M A &amp; SRV succeed</li>
+        <ul style="font-size: 70%;">
+            <li>5.89M total</li>
+            <li>5.4M A &amp; SRV succeeded</li>
             <li>180k SRV only failed</li>
             <li>61.17k A only failed</li>
             <li>249.41k A &amp; SRV failed</li>
-            <li>http://telemetry.mozilla.org/#nightly/29/SRV_EXPERIMENT_STATUS</li>
         </ul>
+        <small class="credits">
+            <a href="http://telemetry.mozilla.org/#nightly/29/SRV_EXPERIMENT_STATUS">http://telemetry.mozilla.org/#nightly/29/SRV_EXPERIMENT_STATUS</a>
+        </small>
     </section>
   </div></div>
 
@@ -114,13 +116,13 @@
         <header>
             <h2>Telemetry Results (Timing Comparison)</h2>
         </header>
-        <img src="pictures/telemetry_timing.png"
-             class="middle shadow"
+        <img src="pictures/telemetry_timing_graph.png"
+             class="right shadow"
              alt="telemetry histogram of timing"
              style="width: 75%;">
 
-        <ul class="inner">
-            <li class="active">Normalized to "1000ms" = even (no negative numbers in telemetry)</li>
+        <ul style="font-size: 55%;">
+            <li>Normalized to "1000ms" = even (no negative numbers in telemetry)</li>
             <li>Negative number (0-999 on graph) means SRV came faster</li>
             <li>Positive number (1001-2000 on graph) means A came faster</li>
             <li>5.4M total</li>
@@ -129,8 +131,10 @@
             <li>Median @ -2.32ms</li>
             <li>69.48k submissions &gt;= +1s</li>
             <li>80.97k submissions &lt;= -1s</li>
-            <li>http://telemetry.mozilla.org/#nightly/29/SRV_EXPERIMENT_SUCCESS_DELTA</li>
         </ul>
+        <small class="credits">
+            <a href="http://telemetry.mozilla.org/#nightly/29/SRV_EXPERIMENT_SUCCESS_DELTA">http://telemetry.mozilla.org/#nightly/29/SRV_EXPERIMENT_SUCCESS_DELTA</a>
+        </small>
     </section>
   </div></div>
 
